@@ -4,4 +4,4 @@ This code was heavily inspired in the code for the paper [Grammar Variational Au
 
 ### Creating the dataset
 To create the molecular dataset, use:
-
+> * python make_qm9_dataset_grammar.py
