@@ -8,7 +8,7 @@ To create the molecular dataset, use:
 
 ### Training the model
 When training the model you can specify the number of epochs, batch size, latent space dimension and the property to be used. Call:
-* ```python model.py --epochs=100 --batch=256 --latent_dim=56 --property=energy_of_LUMO```
+* ```python model.py --epochs=100 --batch=256 --latent_dim=56 --property=energy_of_LUMO``` \
 The name of the property should match the columns names in the ```QM9_STAR.pkl``` data file. To check the column names in the data file, use:
 ```
 import pickle
