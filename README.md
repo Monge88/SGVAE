@@ -22,6 +22,7 @@ with open("data/QM9_STAR.pkl", "rb") as data:
 To plot the latent space, train and test the property prediction model, call:
 * ```python encode_decode_qm9.py --epochs=100 --batch=256 --latent_dim=56 --property=energy_of_LUMO``` \
 
-Notice that you have to specify the same arguments used to train the model, as they are used in the weights' file name.
-
-To 
+Notice that you have to specify the same arguments used to train the model, as they are used in the weights' file name. \
+Finally, to test the models' prior validity and reconstruction accuracy, call:
+* ```python prior_validity.py --epochs=100 --batch=256 --latent_dim=56 --property=energy_of_LUMO``` 
+* ```python reconstruction.py --epochs=100 --batch=256 --latent_dim=56 --property=energy_of_LUMO``` 
