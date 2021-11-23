@@ -26,11 +26,11 @@ def get_arguments():
     parser.add_argument('--load_model', type=str, metavar='N', default="")
     parser.add_argument('--epochs', type=int, metavar='N', default=100,
                         help='Number of epochs to run during training.')
-    parser.add_argument('--latent_dim', type=int, metavar='N', default=None,
+    parser.add_argument('--latent_dim', type=int, metavar='N', default=56,
                         help='Dimensionality of the latent representation.')
     parser.add_argument('--batch', type=int, metavar='N', default=256,
                         help='Dimensionality of the latent representation.')
-    parser.add_argument('--property', type=str, metavar='N', default=None,
+    parser.add_argument('--property', type=str, metavar='N', default=energy_of_LUMO,
                         help='Property to be used to shape the latent representation.')
     return parser.parse_args()
 
