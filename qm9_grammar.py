@@ -22,6 +22,7 @@ aromatic_organic -> 'c'
 aromatic_organic -> 'n'
 aromatic_organic -> 'o'
 aromatic_organic -> 's'
+aromatic_organic -> 'p'
 bracket_atom -> '[' BAI ']'
 BAI -> isotope symbol BAC
 BAI -> symbol BAC
