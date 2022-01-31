@@ -26,28 +26,21 @@ args = get_arguments()
 grammar_weights = 'results/vae_grammar_L' + str(args.latent_dim) + '_E' + str(args.epochs) + '_B' + str(args.batch) + '_P_' + str(args.property) + '.hdf5'
 grammar_model = molecule_vae.GrammarModel(grammar_weights)
 
-x_can = []
-avg = []
-count = 0
+decodings = []
+for i in range(100):
+    z = np.random.normal(0, 1, (1,56))
+    for j in range(100):
+        decodings.append(Chem.MolFromSmiles(grammar_model.decode(z)[0]))
 
-iterator1 = range(100)
-iterator2 = range(100)
-
-with tqdm(iterator1, desc='Prior validity') as molecule_set:
-    for i in molecule_set:
-        z = np.random.randn(1, 56)
-        for j in iterator2:
-            x_hat = grammar_model.decode(z)
-            
-            # check if decodings are valid
-            aux = Chem.MolFromSmiles(x_hat[0])
-            if aux is not None and aux != '':
-            # get canonical representation
-                x_can.append(Chem.MolToSmiles(Chem.MolFromSmiles(x_hat[0]), isomericSmiles=True, canonical=True))
-                count += 1
-        # getting the average for the decoding trials
-        avg.append(count/len(iterator2))
-        count = 0
+decodings[:] = [x for x in decodings if x]  # Returns only valid strings
+valid_smiles = [Chem.MolToSmiles(x, isomericSmiles=True, canonical=True) for x in decodings]
+novel_molecules = [x for x in valid_smiles if x not in list_df]
         
-print(f'Prior validity: {np.mean(avg) * 100:.2f}%')
+prior_validity = len(valid_smiles)/len(decodings) * 100
+num_novel_molecules = len(novel_molecules)/len(valid_smiles) * 100
+num_unique_molecules = len(set(novel_molecules))/len(novel_molecules) * 100
+
+print(f'Prior validity: {prior_validity:.2f}%')
+print(f'Percentage of novel molecules % of valid molecules: {num_novel_molecules:.2f}%')
+print(f'Percentage of unique molecules: {num_unique_molecules:.2f}%')
 
