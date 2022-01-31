@@ -56,14 +56,14 @@ z = grammar_model.encode(smiles_test)
 
 if args.latent_dim == 2:
     plt.figure()
-    plt.scatter(z[:, 0], z[:, 1], c=df[args.property][ids_test], cmap='viridis', s=5)
+    plt.scatter(z[:, 0], z[:, 1], c=df[args.property][ids_train[:30000]], cmap='viridis', s=5)
     plt.colorbar()
     plt.show()
 
 else:
     pca = PCA(n_components=2)
     reduced_data = pca.fit_transform(z)
-    plt.scatter(reduced_data[:, 0], reduced_data[:, 1], c=df[args.property][ids_test], cmap='viridis', s=5)
+    plt.scatter(reduced_data[:, 0], reduced_data[:, 1], c=df[args.property][ids_train[:30000]], cmap='viridis', s=5)
     plt.colorbar()
     plt.show()
 
