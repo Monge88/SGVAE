@@ -179,7 +179,6 @@ if __name__ == '__main__':
     h5f.close()
 
     # get any arguments and define save file, then create the VAE model
-    np.random.seed(1)
     args = get_arguments()
 
     if not os.path.exists('results'):
