@@ -33,7 +33,7 @@ def neural_model(x_lat, y_prop, prop_name):
                   
     reduce_lr = ReduceLROnPlateau(monitor = 'val_loss',
                                   factor = 0.2,
-                                  patience = 3,
+                                  patience = 5,
                                   min_lr = 0.0001)
     
     for train, validation in kfold.split(x, y):
@@ -44,9 +44,10 @@ def neural_model(x_lat, y_prop, prop_name):
                   verbose=0,
                   callbacks=[reduce_lr],
                   validation_data=(x[validation], y[validation]))
-                  
-    if not os.path.exists('prop_pred'):
-    	os.mkdir('prop_pred')
+              
+    folder = os.path.join('prop_pred_weights', prop_name)    
+    if not os.path.exists(folder):
+    	os.makedirs(folder)
         
         
-    model.save('prop_pred/prediction_weights_' + prop_name + '_.h5')
+    model.save(os.path.join(folder, 'prediction_weights.h5'))
