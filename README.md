@@ -1,5 +1,5 @@
 # Supervised Grammar Variational Autoencoder
-This repository contains the code used in the paper: \
+This repository contains the code used in the paper: https://doi.org/10.1021/acs.jcim.1c01573\
 This code is inspired in the paper [Grammar Variational Autoencoder](https://arxiv.org/abs/1703.01925), whose code can be found at https://github.com/mkusner/grammarVAE.
 
 ### Creating the dataset
