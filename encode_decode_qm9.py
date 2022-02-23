@@ -86,12 +86,5 @@ prop_real = np.array(df[args.property][ids_test])
 prop_real_div = np.array(prop_real/n_atoms)
 prop_norm = np.array(scaler.fit_transform(prop_real_div.reshape(-1, 1)))
 
-pp_pred = []
-pp_error =  []
-for i in range(5):
-	pp_pred.append(pp_model.predict(z))
-	pp_error.append(pp_model.evaluate(z, prop_norm))
-
-print(f'\nmae: {np.mean(pp_error):.3f} \u00B1 {np.std(pp_error):.3f} ')
-
-
+pp_error = pp_model.evaluate(z, prop_norm)
+print(f'Prediction error: {pp_error} eV')
