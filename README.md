@@ -3,7 +3,7 @@ This repository contains the code used in the paper: https://doi.org/10.1021/acs
 This code is inspired in the paper [Grammar Variational Autoencoder](https://arxiv.org/abs/1703.01925), whose code can be found at https://github.com/mkusner/grammarVAE.
 
 ---
-A more comprehensible version of the model implemented in pytorch is been developed here: https://github.com/Monge88/pytorch-sgvae
+**A more comprehensible version of the model implemented in pytorch is been developed here: https://github.com/Monge88/pytorch-sgvae**
 
 ---
 
