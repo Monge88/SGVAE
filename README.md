@@ -4,7 +4,7 @@ This code is inspired in the paper [Grammar Variational Autoencoder](https://arx
 
 ---
 A more comprehensible version of the model implemented in pytorch is been developed here: https://github.com/Monge88/pytorch-sgvae
----
+
 ---
 
 ### Creating the dataset
